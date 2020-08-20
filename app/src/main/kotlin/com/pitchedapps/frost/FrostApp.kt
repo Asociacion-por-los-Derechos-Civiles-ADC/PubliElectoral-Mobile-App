@@ -20,6 +20,7 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import android.util.Log
+import android.webkit.WebView
 import ca.allanwang.kau.kpref.KPrefFactory
 import ca.allanwang.kau.kpref.KPrefFactoryAndroid
 import ca.allanwang.kau.logging.KL
@@ -75,7 +76,7 @@ class FrostApp : Application(), KoinComponent {
 
         L.i { "Begin Frost for Facebook" }
         FrostPglAdBlock.init(this)
-
+        WebView.setWebContentsDebuggingEnabled(true);
         super.onCreate()
 
         setupNotificationChannels(this, prefs)

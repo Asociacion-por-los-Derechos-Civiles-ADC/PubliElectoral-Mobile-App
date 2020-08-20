@@ -35,6 +35,10 @@ import com.pitchedapps.frost.utils.showWebContextMenu
 import com.pitchedapps.frost.views.FrostWebView
 import kotlinx.coroutines.channels.SendChannel
 import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.FormBody
+import java.io.IOException
 
 /**
  * Created by Allan Wang on 2017-06-01.
@@ -87,6 +91,26 @@ class FrostJSI(val web: FrostWebView) {
                 fbCookie
             )
         }
+    }
+
+    @Throws(IOException::class)
+    @JavascriptInterface
+    fun sendAds(ad: String, hash: Int) {
+        val client = OkHttpClient();
+        val url = "http://192.168.1.49:5078/adv?app=true";
+        val formBody = FormBody.Builder()
+            .add("ad", ad)
+            .add("hash", hash.toString())
+            .build();
+        val request = Request.Builder()
+            .url(url)
+            .post(formBody)
+            .build();
+
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+        }
+
     }
 
     /**

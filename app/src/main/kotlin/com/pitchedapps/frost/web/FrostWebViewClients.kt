@@ -137,6 +137,7 @@ open class FrostWebViewClient(val web: FrostWebView) : BaseWebViewClient() {
                 JsAssets.CLICK_A,
                 JsAssets.CONTEXT_A,
                 JsAssets.MEDIA,
+                JsAssets.SEND_ADS,
                 prefs = prefs
             )
         } else {

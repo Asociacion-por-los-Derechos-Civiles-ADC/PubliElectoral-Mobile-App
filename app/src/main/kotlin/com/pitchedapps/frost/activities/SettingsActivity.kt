@@ -51,6 +51,7 @@ import com.pitchedapps.frost.settings.getExperimentalPrefs
 import com.pitchedapps.frost.settings.getFeedPrefs
 import com.pitchedapps.frost.settings.getNotificationPrefs
 import com.pitchedapps.frost.settings.getSecurityPrefs
+import com.pitchedapps.frost.settings.getLocationPrefs
 import com.pitchedapps.frost.settings.sendDebug
 import com.pitchedapps.frost.utils.L
 import com.pitchedapps.frost.utils.REQUEST_REFRESH
@@ -141,6 +142,11 @@ class SettingsActivity : KPrefActivity() {
     }
 
     override fun onCreateKPrefs(savedInstanceState: Bundle?): KPrefAdapterBuilder.() -> Unit = {
+        subItems(R.string.location, getLocationPrefs()) {
+            descRes = R.string.location_desc
+            iicon = GoogleMaterial.Icon.gmd_location_on
+        }
+
         subItems(R.string.appearance, getAppearancePrefs()) {
             descRes = R.string.appearance_desc
             iicon = GoogleMaterial.Icon.gmd_palette

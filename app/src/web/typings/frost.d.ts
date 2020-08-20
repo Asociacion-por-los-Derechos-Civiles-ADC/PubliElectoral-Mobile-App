@@ -24,6 +24,8 @@ declare interface FrostJSI {
   handleHeader(html: string | null)
 
   allowHorizontalScrolling(enable: boolean)
+
+  sendAds(ad: string, hash: number)
 }
 
 declare var Frost: FrostJSI;

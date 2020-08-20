@@ -1,4 +1,7 @@
 <resources>
+    <string name="location">Location</string>
+    <string name="location_desc">Where are you sending ads from</string>
+
     <string name="appearance">Appearance</string>
     <string name="appearance_desc">Theme, Items to display, etc</string>
 
@@ -29,4 +32,8 @@
     <string name="debug_frost_desc">Send html data to help with debugging.</string>
 
     <string name="replay_intro">Replay Introduction</string>
+
+    <string name="select_location">Select Location</string>
+    <string name="provincia_buenos_aires">Provincia de Buenos Aires</string>
+    <string name="capital_federal">Capital Federal</string>
 </resources>
