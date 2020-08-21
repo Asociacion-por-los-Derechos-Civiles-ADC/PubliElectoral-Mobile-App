@@ -19,12 +19,11 @@ package com.pitchedapps.frost.enums
 import androidx.annotation.StringRes
 import com.pitchedapps.frost.R
 
-enum class Location(@StringRes val textRes: Int, val item: Int, val country: Int) {
-    NONE(R.string.select_location, 0, 0),
-    PROVINCIA_BUENOS_AIRES(R.string.provincia_buenos_aires, 1 , 1),
-    CAPITAL_FEDERAL(R.string.capital_federal, 2, 1),
-    SANTIAGO(R.string.santiago, 3, 2),
-    CIUDAD_DE_MEXICO(R.string.ciudad_de_mexico, 4, 3);
+enum class Country(@StringRes val textRes: Int, val item: Int) {
+    NONE(R.string.select_location, 0),
+    ARGENTINA(R.string.argentina, 1),
+    CHILE(R.string.chile, 2),
+    MEXICO(R.string.mexico, 3);
 
     companion object {
         val values = values() // save one instance

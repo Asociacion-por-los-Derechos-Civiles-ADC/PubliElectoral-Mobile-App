@@ -67,6 +67,10 @@ class OldPrefs(factory: KPrefFactory) : KPref("${BuildConfig.APPLICATION_ID}.pre
 
     var feedSort: Int by kpref("feed_sort", FeedSort.DEFAULT.ordinal)
 
+    var location: Int by kpref("location", 0)
+
+    var country: Int by kpref("country", 0)
+
     var aggressiveRecents: Boolean by kpref("aggressive_recents", false)
 
     var showComposer: Boolean by kpref("status_composer_feed", true)

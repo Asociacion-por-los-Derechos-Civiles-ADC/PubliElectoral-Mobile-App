@@ -22,6 +22,8 @@ import com.pitchedapps.frost.prefs.sections.CorePrefs
 import com.pitchedapps.frost.prefs.sections.CorePrefsImpl
 import com.pitchedapps.frost.prefs.sections.FeedPrefs
 import com.pitchedapps.frost.prefs.sections.FeedPrefsImpl
+import com.pitchedapps.frost.prefs.sections.LocationPrefs
+import com.pitchedapps.frost.prefs.sections.LocationPrefsImpl
 import com.pitchedapps.frost.prefs.sections.NotifPrefs
 import com.pitchedapps.frost.prefs.sections.NotifPrefsImpl
 import com.pitchedapps.frost.prefs.sections.ShowcasePrefs
@@ -43,6 +45,7 @@ interface Prefs :
     BehaviourPrefs,
     CorePrefs,
     FeedPrefs,
+    LocationPrefs,
     NotifPrefs,
     ThemePrefs,
     ShowcasePrefs,
@@ -54,6 +57,7 @@ interface Prefs :
             single<BehaviourPrefs> { BehaviourPrefsImpl(factory = get()) }
             single<CorePrefs> { CorePrefsImpl(factory = get()) }
             single<FeedPrefs> { FeedPrefsImpl(factory = get()) }
+            single<LocationPrefs> { LocationPrefsImpl(factory = get()) }
             single<NotifPrefs> { NotifPrefsImpl(factory = get()) }
             single<ThemePrefs> { ThemePrefsImpl(factory = get()) }
             single<ShowcasePrefs> { ShowcasePrefsImpl(factory = get()) }
@@ -62,6 +66,7 @@ interface Prefs :
                     behaviourPrefs = get(),
                     corePrefs = get(),
                     feedPrefs = get(),
+                    locationPrefs = get(),
                     notifPrefs = get(),
                     themePrefs = get(),
                     showcasePrefs = get()
@@ -77,6 +82,7 @@ class PrefsImpl(
     private val behaviourPrefs: BehaviourPrefs,
     private val corePrefs: CorePrefs,
     private val feedPrefs: FeedPrefs,
+    private val locationPrefs: LocationPrefs,
     private val notifPrefs: NotifPrefs,
     private val themePrefs: ThemePrefs,
     private val showcasePrefs: ShowcasePrefs
@@ -84,6 +90,7 @@ class PrefsImpl(
     BehaviourPrefs by behaviourPrefs,
     CorePrefs by corePrefs,
     FeedPrefs by feedPrefs,
+    LocationPrefs by locationPrefs,
     NotifPrefs by notifPrefs,
     ThemePrefs by themePrefs,
     ShowcasePrefs by showcasePrefs {
@@ -92,6 +99,7 @@ class PrefsImpl(
         behaviourPrefs.reset()
         corePrefs.reset()
         feedPrefs.reset()
+        locationPrefs.reset()
         notifPrefs.reset()
         themePrefs.reset()
         showcasePrefs.reset()
@@ -101,6 +109,7 @@ class PrefsImpl(
         behaviourPrefs.deleteKeys()
         corePrefs.deleteKeys()
         feedPrefs.deleteKeys()
+        locationPrefs.deleteKeys()
         notifPrefs.deleteKeys()
         themePrefs.deleteKeys()
         showcasePrefs.deleteKeys()

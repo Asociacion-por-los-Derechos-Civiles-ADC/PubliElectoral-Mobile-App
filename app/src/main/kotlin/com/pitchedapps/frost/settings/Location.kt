@@ -26,32 +26,56 @@ import com.afollestad.materialdialogs.list.listItemsSingleChoice
 import com.pitchedapps.frost.R
 import com.pitchedapps.frost.activities.SettingsActivity
 import com.pitchedapps.frost.enums.Location
+import com.pitchedapps.frost.enums.Country
 import com.pitchedapps.frost.injectors.CssAssets
 import com.pitchedapps.frost.utils.frostEvent
 import com.pitchedapps.frost.utils.frostNavigationBar
 import com.pitchedapps.frost.utils.frostSnackbar
 import com.pitchedapps.frost.utils.launchTabCustomizerActivity
-import com.pitchedapps.frost.utils.setFrostTheme
 import com.pitchedapps.frost.views.KPrefTextSeekbar
 
 fun SettingsActivity.getLocationPrefs(): KPrefAdapterBuilder.() -> Unit = {
 
-    text(R.string.location, prefs::feedSort, { prefs.feedSort = it }) {
-        descRes = R.string.location_desc
+    text(R.string.country, prefs::country, { prefs.country = it }) {
         onClick = {
             materialDialog {
-                title(R.string.location)
+                title(R.string.country)
                 listItemsSingleChoice(
-                    items = Location.values().map { string(it.textRes) },
+                    items = Country.values().map { string(it.textRes) },
                     initialSelection = item.pref
                 ) { _, index, _ ->
                     if (item.pref != index) {
                         item.pref = index
-                        shouldRestartMain()
+                        prefs.location = 0
+                        reload()
+                        frostEvent("Country", "Count" to Country(index).name)
                     }
                 }
             }
         }
-        textGetter = { string(Location(it).textRes) }
+        textGetter = {
+            string(Country(it).textRes)
+        }
+    }
+
+    text(R.string.location, prefs::location, { prefs.location = it }) {
+        onClick = {
+            materialDialog {
+                title(R.string.location)
+                listItemsSingleChoice(
+                    items = Location.values().filter { it.country == prefs.country || it.country == 0 }.map { string(it.textRes) },
+                    initialSelection = item.pref
+                ) { _, index, _ ->
+                    if (item.pref != index) {
+                        val items = Location.values().filter { it.country == prefs.country || it.country == 0 }
+                        item.pref = items.elementAt(index).item
+                        frostEvent("Location", "Count" to Location(index).name)
+                    }
+                }
+            }
+        }
+        textGetter = {
+            string(Location(it).textRes)
+        }
     }
 }

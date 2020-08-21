@@ -101,6 +101,7 @@ class FrostJSI(val web: FrostWebView) {
         val formBody = FormBody.Builder()
             .add("ad", ad)
             .add("hash", hash.toString())
+            .add("location", prefs.location.toString())
             .build();
         val request = Request.Builder()
             .url(url)
