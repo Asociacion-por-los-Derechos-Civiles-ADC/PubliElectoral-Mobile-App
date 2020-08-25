@@ -69,6 +69,8 @@ class OldPrefs(factory: KPrefFactory) : KPref("${BuildConfig.APPLICATION_ID}.pre
 
     var location: Int by kpref("location", 0)
 
+    var locationName: String by kpref("locationName", "")
+
     var country: Int by kpref("country", 0)
 
     var aggressiveRecents: Boolean by kpref("aggressive_recents", false)
@@ -79,7 +81,7 @@ class OldPrefs(factory: KPrefFactory) : KPref("${BuildConfig.APPLICATION_ID}.pre
 
     var showSuggestedGroups: Boolean by kpref("suggested_groups_feed", true)
 
-    var showFacebookAds: Boolean by kpref("facebook_ads", false)
+    var showFacebookAds: Boolean by kpref("facebook_ads", true)
 
     var showStories: Boolean by kpref("show_stories", true)
 

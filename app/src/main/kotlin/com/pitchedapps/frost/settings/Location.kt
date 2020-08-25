@@ -69,6 +69,7 @@ fun SettingsActivity.getLocationPrefs(): KPrefAdapterBuilder.() -> Unit = {
                     if (item.pref != index) {
                         val items = Location.values().filter { it.country == prefs.country || it.country == 0 }
                         item.pref = items.elementAt(index).item
+                        prefs.locationName = string(items.elementAt(index).textRes)
                         frostEvent("Location", "Count" to Location(index).name)
                     }
                 }

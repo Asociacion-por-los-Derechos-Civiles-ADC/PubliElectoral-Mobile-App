@@ -133,8 +133,8 @@ android {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
             signingConfig signingConfigs.debug
-            resValue "string", "frost_name", "Frost Debug"
-            resValue "string", "frost_web", "Frost Web Debug"
+            resValue "string", "frost_name", "PubliElectoral Debug"
+            resValue "string", "frost_web", "PubliElectoral Web Debug"
             ext.enableBugsnag = false
 
             kotlinOptions.freeCompilerArgs += compilerArgs
@@ -146,16 +146,16 @@ android {
             applicationIdSuffix ".test"
             versionNameSuffix "-test"
             if (withTestSigning) signingConfig signingConfigs.test
-            resValue "string", "frost_name", "Frost Test"
-            resValue "string", "frost_web", "Frost Web Test"
+            resValue "string", "frost_name", "PubliElectoral Test"
+            resValue "string", "frost_web", "PubliElectoral Web Test"
         }
         release {
             minifyEnabled true
             shrinkResources true
             if (withReleaseSigning) signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            resValue "string", "frost_name", "Frost"
-            resValue "string", "frost_web", "Frost Web"
+            resValue "string", "frost_name", "PubliElectoral"
+            resValue "string", "frost_web", "PubliElectoral Web"
         }
     }
 

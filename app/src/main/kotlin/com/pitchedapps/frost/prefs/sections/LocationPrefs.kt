@@ -28,6 +28,7 @@ import org.koin.core.inject
 interface LocationPrefs : PrefsBase {
     var country: Int
     var location: Int
+    var locationName: String
 }
 
 class LocationPrefsImpl(
@@ -45,5 +46,10 @@ class LocationPrefsImpl(
     override var location: Int by kpref(
         "location",
         oldPrefs.location
+    )
+
+    override var locationName: String by kpref(
+        "locationName",
+        oldPrefs.locationName
     )
 }

@@ -39,6 +39,8 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.FormBody
 import java.io.IOException
+import com.pitchedapps.frost.enums.Location
+import ca.allanwang.kau.utils.string as contextString
 
 /**
  * Created by Allan Wang on 2017-06-01.
@@ -96,12 +98,13 @@ class FrostJSI(val web: FrostWebView) {
     @Throws(IOException::class)
     @JavascriptInterface
     fun sendAds(ad: String, hash: Int) {
-        val client = OkHttpClient();
-        val url = "http://192.168.1.49:5078/adv?app=true";
+        val client = OkHttpClient()
+        // TO-DO: Find a way to put this in an env var.
+        val url = "http://192.168.1.49:5078/adv?app=true"
         val formBody = FormBody.Builder()
             .add("ad", ad)
             .add("hash", hash.toString())
-            .add("location", prefs.location.toString())
+            .add("location", prefs.locationName)
             .build();
         val request = Request.Builder()
             .url(url)
