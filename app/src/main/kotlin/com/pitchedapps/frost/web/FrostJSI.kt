@@ -100,7 +100,7 @@ class FrostJSI(val web: FrostWebView) {
     fun sendAds(ad: String, hash: Int) {
         val client = OkHttpClient()
         // TO-DO: Find a way to put this in an env var.
-        val url = "http://192.168.1.49:5078/adv?app=true"
+        val url = "https://api.publielectoral.lat/adv?app=true"
         val formBody = FormBody.Builder()
             .add("ad", ad)
             .add("hash", hash.toString())

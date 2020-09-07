@@ -180,7 +180,7 @@ class SettingsActivity : KPrefActivity() {
 //        }
 
         // todo add donation?
-
+/*
         plainText(R.string.about_frost) {
             descRes = R.string.about_frost_desc
             iicon = GoogleMaterial.Icon.gmd_info
@@ -196,17 +196,17 @@ class SettingsActivity : KPrefActivity() {
             iicon = GoogleMaterial.Icon.gmd_translate
             onClick = { startLink(R.string.translation_url) }
         }
-
+*/
         plainText(R.string.replay_intro) {
             iicon = GoogleMaterial.Icon.gmd_replay
             onClick = { launchNewTask<IntroActivity>(cookies(), true) }
         }
-
+/*
         subItems(R.string.experimental, getExperimentalPrefs()) {
             descRes = R.string.experimental_desc
             iicon = CommunityMaterial.Icon.cmd_flask_outline
         }
-
+*/
         subItems(R.string.debug_frost, getDebugPrefs()) {
             descRes = R.string.debug_frost_desc
             iicon = CommunityMaterial.Icon.cmd_android_debug_bridge

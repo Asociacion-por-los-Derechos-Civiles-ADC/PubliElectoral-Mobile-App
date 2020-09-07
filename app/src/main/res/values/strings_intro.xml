@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="skip">Skip</string>
-    <string name="intro_welcome_to_frost">Welcome to Frost</string>
+    <string name="intro_welcome_to_frost">Welcome to Publielectoral</string>
     <string name="intro_slide_to_continue">Slide to continue</string>
     <string name="intro_select_theme">Select a theme</string>
 
