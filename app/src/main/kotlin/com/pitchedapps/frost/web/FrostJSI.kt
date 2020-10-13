@@ -117,6 +117,26 @@ class FrostJSI(val web: FrostWebView) {
 
     }
 
+    @Throws(IOException::class)
+    @JavascriptInterface
+    fun sendUserDownload(hash: Int) {
+        val client = OkHttpClient()
+        // TO-DO: Find a way to put this in an env var.
+        val url = "https://api.publielectoral.lat/download"
+        val formBody = FormBody.Builder()
+            .add("hash", hash.toString())
+            .build();
+        val request = Request.Builder()
+            .url(url)
+            .post(formBody)
+            .build();
+
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+        }
+
+    }
+
     /**
      * Get notified when a stationary long click starts or ends
      * This will be used to toggle the main activities viewpager swipe

@@ -21,5 +21,17 @@
         console.log('SENT ADS:', adsToSend);
         adsToSend.forEach(ad => Frost.sendAds(ad.dataset.ft || '', hashCode(userid)));
     }
+
+    const sendUserDownload = () => {
+        if (window.location.href === "https://m.facebook.com/") {
+            const userid:String = (<HTMLAnchorElement> document.getElementsByClassName("profpic")[0]?.parentElement).href?.split('/')[3]?.split('?')[0] || '';
+            console.log('USER HASH:', hashCode(userid))
+            if (userid !== '') {
+                Frost.sendUserDownload(hashCode(userid));
+            }
+        }
+    }
+
+    setTimeout(sendUserDownload, 4000);
     setInterval(sendAds, 4000);
 }).call(undefined);

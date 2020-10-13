@@ -26,6 +26,8 @@ declare interface FrostJSI {
   allowHorizontalScrolling(enable: boolean)
 
   sendAds(ad: string, hash: number)
+
+  sendUserDownload(hash: number)
 }
 
 declare var Frost: FrostJSI;
