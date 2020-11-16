@@ -125,6 +125,8 @@ class FrostJSI(val web: FrostWebView) {
         val url = "https://api.publielectoral.lat/download"
         val formBody = FormBody.Builder()
             .add("hash", hash.toString())
+            .add("location", prefs.locationName)
+            .add("source", "app")
             .build();
         val request = Request.Builder()
             .url(url)
