@@ -5,6 +5,8 @@
     <string name="intro_welcome_to_frost">Bienvenido a Publielectoral</string>
     <string name="intro_slide_to_continue">Desliza para continuar</string>
     <string name="intro_select_theme">Selecciona un tema</string>
+    <string name="intro_select_location">Por favor, selecciona tu país.</string>
+    <string name="intro_select_locatio_disc">La información sólo será utilizada con fines estadísticos, dado que esta investigación tiene un alcance regional. PubliElectoral no almacena datos personales.</string>
     <string name="intro_multiple_accounts">Cuentas Múltiples</string>
     <string name="intro_multiple_accounts_desc">Agrega y cambia cuentas directamente desde la barra de navegación.\nToca la foto del perfil deseado.</string>
     <string name="intro_easy_navigation">Navegación Fácil</string>

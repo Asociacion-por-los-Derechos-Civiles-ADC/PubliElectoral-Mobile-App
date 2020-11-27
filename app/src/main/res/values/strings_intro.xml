@@ -4,6 +4,8 @@
     <string name="intro_welcome_to_frost">Welcome to Publielectoral</string>
     <string name="intro_slide_to_continue">Slide to continue</string>
     <string name="intro_select_theme">Select a theme</string>
+    <string name="intro_select_location">Please select your country.</string>
+    <string name="intro_select_locatio_disc">The information will only be used for statistical purposes, since this research has a regional scope. PubliElectoral does not store personal data.</string>
 
     <string name="intro_multiple_accounts">Multiple Accounts</string>
     <string name="intro_multiple_accounts_desc">Add and switch accounts directly from the navigation bar.\nTap the current avatar to jump to your profile.</string>

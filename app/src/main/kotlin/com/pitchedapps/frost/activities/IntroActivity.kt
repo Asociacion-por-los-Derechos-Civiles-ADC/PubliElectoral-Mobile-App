@@ -44,6 +44,7 @@ import com.pitchedapps.frost.intro.IntroAccountFragment
 import com.pitchedapps.frost.intro.IntroFragmentAnalytics
 import com.pitchedapps.frost.intro.IntroFragmentEnd
 import com.pitchedapps.frost.intro.IntroFragmentTheme
+import com.pitchedapps.frost.intro.IntroFragmentLocation
 import com.pitchedapps.frost.intro.IntroFragmentWelcome
 import com.pitchedapps.frost.intro.IntroTabContextFragment
 import com.pitchedapps.frost.intro.IntroTabTouchFragment
@@ -72,11 +73,12 @@ class IntroActivity : KauBaseActivity(), ViewPager.PageTransformer,
 
     val fragments = listOf(
         IntroFragmentWelcome(),
-        IntroFragmentTheme(),
+        IntroFragmentLocation(),
+        // IntroFragmentTheme(),
         IntroAccountFragment(),
         IntroTabTouchFragment(),
         IntroTabContextFragment(),
-        IntroFragmentAnalytics(),
+        // IntroFragmentAnalytics(),
         IntroFragmentEnd()
     )
 
@@ -99,7 +101,7 @@ class IntroActivity : KauBaseActivity(), ViewPager.PageTransformer,
             if (barHasNext) viewpager.setCurrentItem(viewpager.currentItem + 1, true)
             else finish(next.x + next.pivotX, next.y + next.pivotY)
         }
-        skip.setOnClickListener { finish() }
+        // skip.setOnClickListener { finish() }
         ripple.set(prefs.bgColor)
         theme()
     }
@@ -108,7 +110,7 @@ class IntroActivity : KauBaseActivity(), ViewPager.PageTransformer,
         statusBarColor = prefs.headerColor
         navigationBarColor = prefs.headerColor
         with(binding) {
-            skip.setTextColor(prefs.textColor)
+            // skip.setTextColor(prefs.textColor)
             next.imageTintList = ColorStateList.valueOf(prefs.textColor)
             indicator.setColour(prefs.textColor)
             indicator.invalidate()
@@ -146,7 +148,7 @@ class IntroActivity : KauBaseActivity(), ViewPager.PageTransformer,
         }
         val lastView: View? = fragments.last().view
         arrayOf<View?>(
-            binding.skip, binding.indicator, binding.next,
+            /*binding.skip,*/ binding.indicator, binding.next,
             lastView?.findViewById(R.id.intro_title),
             lastView?.findViewById(R.id.intro_desc)
         ).forEach {
@@ -212,7 +214,7 @@ class IntroActivity : KauBaseActivity(), ViewPager.PageTransformer,
                 color = prefs.textColor
             )
         }
-        binding.skip.animate().scaleXY(if (barHasNext) 1f else 0f)
+        // binding.skip.animate().scaleXY(if (barHasNext) 1f else 0f)
     }
 
     class IntroPageAdapter(fm: FragmentManager, private val fragments: List<BaseIntroFragment>) :

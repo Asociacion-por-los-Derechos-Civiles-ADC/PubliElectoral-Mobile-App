@@ -1,5 +1,4 @@
 <resources>
-    <string name="country">Country</string>
     <string name="location">Location</string>
     <string name="location_desc">Where are you sending ads from</string>
 
@@ -37,14 +36,8 @@
 
     <string name="select_location">Select Location</string>
 
-    <string name="provincia_buenos_aires">Provincia de Buenos Aires</string>
-    <string name="capital_federal">Capital Federal</string>
-
-    <string name="santiago">Santiago de Chile</string>
-
-    <string name="ciudad_de_mexico">Ciudad de México</string>
-
     <string name="argentina">Argentina</string>
     <string name="chile">Chile</string>
     <string name="mexico">México</string>
+    <string name="paraguay">Paraguay</string>
 </resources>
