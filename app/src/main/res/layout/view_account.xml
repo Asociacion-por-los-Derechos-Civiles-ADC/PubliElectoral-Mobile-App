@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/kau_activity_vertical_margin">
+
+    <ImageView
+        android:id="@+id/account_image"
+        android:layout_width="@dimen/account_image_size"
+        android:layout_height="@dimen/account_image_size" />
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/account_text"
+        android:layout_width="@dimen/account_image_size"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textColor="@android:color/white" />
+</LinearLayout>

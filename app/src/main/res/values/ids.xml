@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="item_account" type="id" />
+    <item name="item_keyword" type="id" />
+    <item name="item_about_links" type="id" />
+    <item name="item_menu_header" type="id" />
+    <item name="item_menu_footer" type="id" />
+    <item name="item_menu_footer_small" type="id" />
+
+    <item name="intro_phone" type="id" />
+    <item name="intro_phone_screen" type="id" />
+    <item name="intro_title" type="id" />
+    <item name="intro_image" type="id" />
+    <item name="intro_button" type="id" />
+    <item name="intro_desc" type="id" />
+
+    <!--Extra menu ids; see OverlayContext-->
+    <item name="action_notification" type="id" />
+    <item name="action_messages" type="id" />
+    <item name="action_frost" type="id" />
+
+    <item name="content_progress" type="id" />
+    <item name="content_refresh" type="id" />
+    <item name="content_core" type="id" />
+    <item name="content_frame" type="id" />
+</resources>

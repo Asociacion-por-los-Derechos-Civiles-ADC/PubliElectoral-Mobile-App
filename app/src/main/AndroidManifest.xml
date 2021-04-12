@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.pitchedapps.frost">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
+    <application
+        android:name=".FrostApp"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/frost_backup_rules"
+        android:icon="@mipmap/ic_launcher_round"
+        android:label="@string/frost_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/FrostTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute">
+        <!-- Matches general label under NotificationUtils.kt -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="general" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/facebook_blue" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/frost_f_24" />
+
+        <activity
+            android:name=".StartActivity"
+            android:label="@string/frost_name"
+            android:noHistory="true"
+            android:theme="@style/FrostTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation|screenSize|locale"
+            android:hardwareAccelerated="true"
+            android:label="@string/frost_name" />
+        <activity
+            android:name=".activities.WebOverlayActivity"
+            android:configChanges="orientation|screenSize|locale"
+            android:hardwareAccelerated="true"
+            android:label="@string/frost_name"
+            android:launchMode="singleTop"
+            android:theme="@style/FrostTheme.Overlay.Slide" />
+        <activity
+            android:name=".activities.WebOverlayDesktopActivity"
+            android:configChanges="orientation|screenSize|locale"
+            android:hardwareAccelerated="true"
+            android:label="@string/frost_web"
+            android:launchMode="singleTop"
+            android:theme="@style/FrostTheme.Overlay.Slide" />
+        <activity
+            android:name=".activities.WebOverlayMobileActivity"
+            android:configChanges="orientation|screenSize|locale"
+            android:hardwareAccelerated="true"
+            android:label="@string/frost_web"
+            android:launchMode="singleTop"
+            android:theme="@style/FrostTheme.Overlay.Slide" />
+        <activity
+            android:name=".activities.FrostWebActivity"
+            android:autoRemoveFromRecents="true"
+            android:configChanges="orientation|screenSize|locale"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:label="@string/frost_web"
+            android:launchMode="singleInstance"
+            android:taskAffinity="com.pitchedapps.frost.single.web"
+            android:theme="@style/FrostTheme.Overlay.Slide">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter
+                android:autoVerify="true"
+                tools:ignore="UnusedAttribute">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="m.facebook.com"
+                    android:scheme="http" />
+                <data
+                    android:host="m.facebook.com"
+                    android:scheme="https" />
+                <data
+                    android:host="mobile.facebook.com"
+                    android:scheme="http" />
+                <data
+                    android:host="mobile.facebook.com"
+                    android:scheme="https" />
+                <data
+                    android:host="touch.facebook.com"
+                    android:scheme="http" />
+                <data
+                    android:host="touch.facebook.com"
+                    android:scheme="https" />
+                <data
+                    android:host="fb.com"
+                    android:scheme="http" />
+                <data
+                    android:host="fb.com"
+                    android:scheme="https" />
+                <data
+                    android:host="fb.me"
+                    android:scheme="http" />
+                <data
+                    android:host="fb.me"
+                    android:scheme="https" />
+                <data
+                    android:host="facebook.com"
+                    android:scheme="http" />
+                <data
+                    android:host="facebook.com"
+                    android:scheme="https" />
+                <data
+                    android:host="www.facebook.com"
+                    android:scheme="http" />
+                <data
+                    android:host="www.facebook.com"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.IntroActivity"
+            android:theme="@style/FrostTheme.Intro" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.SelectorActivity" />
+        <activity android:name=".activities.TabCustomizerActivity" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:theme="@style/FrostTheme.Settings" />
+        <activity
+            android:name=".activities.AboutActivity"
+            android:theme="@style/Kau.About" />
+        <activity
+            android:name=".activities.ImageActivity"
+            android:theme="@style/FrostTheme.Overlay" />
+        <activity android:name=".activities.DebugActivity" />
+
+        <service
+            android:name=".services.NotificationService"
+            android:enabled="true"
+            android:label="@string/frost_notifications"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".services.LocalService"
+            android:enabled="true"
+            android:label="@string/local_service_name"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver
+            android:name=".services.UpdateReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!--Widgets-->
+        <receiver android:name=".widgets.NotificationWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/notification_widget_info" />
+        </receiver>
+        <service
+            android:name=".widgets.NotificationWidgetService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <meta-data
+            android:name="com.bugsnag.android.API_KEY"
+            android:value="83cf680ed01a6fda10fe497d1c0962bb" />
+    </application>
+
+</manifest>

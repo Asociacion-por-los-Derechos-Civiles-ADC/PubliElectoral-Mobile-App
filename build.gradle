@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath kau.Plugins.android
+        classpath kau.Plugins.kotlin
+        classpath kau.Plugins.bugsnag
+        classpath kau.Plugins.spotless
+//        classpath kau.Plugins.dexCount
+        classpath kau.Plugins.gitVersion
+    }
+
+    wrapper.setDistributionType(Wrapper.DistributionType.ALL)
+}
+
+task generateChangelogMd() {
+    def changelog = kau.ChangelogGenerator.generate("${project.rootDir}/app/src/main/res/xml/frost_changelog.xml", "${project.rootDir}/docs/Changelog.md")
+    // If we have no changelog, something is wrong
+    def entry = changelog[0]
+    def whatsNewFile = new File("${project.rootDir}/app/src/main/play/en-US/whatsnew")
+    if (!whatsNewFile.exists()) {
+        // Throw exceptions so that moving this file will require us to update the script
+        throw new RuntimeException("Whatsnew file not found")
+    }
+    whatsNewFile.withWriter { writer ->
+        writer.write(entry.version)
+        writer.write("\n")
+        entry.items.each {
+            writer.write("\n* ${it}")
+        }
+    }
+}
