@@ -30,14 +30,15 @@ class IntroFragmentLocation : BaseIntroFragment(R.layout.intro_location) {
 
     val locationList
         get() = with(binding) {
-            listOf(argentina, chile, mexico, paraguay)
+            listOf(argentina, brasil, chile, mexico, paraguay)
         }
 
     override fun viewArray(): Array<Array<out View>> = with(binding) {
         arrayOf(
             arrayOf(title),
-            arrayOf(argentina, chile),
-            arrayOf(mexico, paraguay)
+            arrayOf(argentina, brasil),
+            arrayOf(chile, mexico),
+            arrayOf(paraguay)
         )
     }
 
@@ -49,11 +50,12 @@ class IntroFragmentLocation : BaseIntroFragment(R.layout.intro_location) {
 
     private fun IntroLocationBinding.init() {
         argentina.setLocationClick(Location.ARGENTINA)
+        brasil.setLocationClick(Location.BRASIL)
         chile.setLocationClick(Location.CHILE)
         mexico.setLocationClick(Location.MEXICO)
         paraguay.setLocationClick(Location.PARAGUAY)
         val currentLocation = prefs.location
-        if (currentLocation in 0..3)
+        if (currentLocation in 0..4)
             locationList.forEachIndexed { index, v ->
                 v.scaleXY = if (index == currentLocation) 1.6f else 0.8f
             }
