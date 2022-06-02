@@ -21,9 +21,10 @@ import com.pitchedapps.frost.R
 
 enum class Location(@StringRes val textRes: Int, val item: Int) {
     ARGENTINA(R.string.argentina, 0),
-    CHILE(R.string.chile, 1),
-    MEXICO(R.string.mexico, 2),
-    PARAGUAY(R.string.paraguay, 3);
+    BRASIL(R.string.brasil, 1),
+    CHILE(R.string.chile, 2),
+    MEXICO(R.string.mexico, 3),
+    PARAGUAY(R.string.paraguay, 4);
 
     companion object {
         val values = values() // save one instance
