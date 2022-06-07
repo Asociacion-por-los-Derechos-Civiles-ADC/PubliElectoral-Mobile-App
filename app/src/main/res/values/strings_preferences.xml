@@ -1,4 +1,7 @@
 <resources>
+    <string name="country">Country</string>
+    <string name="country_desc">Your Country</string>
+
     <string name="location">Location</string>
     <string name="location_desc">Where are you sending ads from</string>
 
